@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'
+let time = new Date().toLocaleTimeString();
 
-function App() {
+function App(){ 
+  const [ctime,uptime] = useState(time);
+  const Updatetime=()=>{
+   time = new Date().toLocaleTimeString();
+   uptime(time);
+  }
+
+  setInterval(Updatetime,1000);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='container1'>
+        <h1>Digital Clock</h1>
+        <br></br>
+        <h1>{ctime}</h1>
+      </div>
+    </>
   );
 }
 
